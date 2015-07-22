@@ -10,7 +10,7 @@ library(rgdal)
 
 #Initial function to import Shapefile into R and reproject
 ImportToR <- function(Path,ImportName){
-  setwd(Path)
+  #setwd(Path)
   ShapeFile <- readOGR(dsn = Path, layer = ImportName)
   if(!is.na(is.projected(ShapeFile)) && is.projected(ShapeFile)){
     standard <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +towgs84=0,0,0")
@@ -81,7 +81,7 @@ TabShapeRPoints <- function(Path,ImportName,ExportName){
 # Extracts Polygon Type Data
 TabShapeRPolygons <- function(Path,ImportName,ExportName){
   
-  setwd(Path)
+  #setwd(Path)
   ShapeFile <- ImportToR(Path,ImportName)
   
   Data <- as(ShapeFile, "data.frame")
